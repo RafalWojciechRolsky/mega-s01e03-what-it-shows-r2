@@ -1,0 +1,9 @@
+tenants loaded: 8 | domains: 9
+reports in file: 427 | unique: 412 | merged into #4471: 412
+clusters (distinct issues): 3
+ticket issue (most of its reports): sched-prod:E-TZ-114
+
+place        code        reports people first  last  tagged
+sched-prod   E-TZ-114     349    206   03:12   06:13   sched-prod×349
+tram-3       E-TZ-114      44     26   03:33   06:11   tram-3×41 sched-prod×3
+rota-6       E-SYNC-04     19      9   03:27   06:08   rota-6×13 sched-prod×6

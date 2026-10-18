@@ -1,0 +1,54 @@
+
+=== sched-prod:E-TZ-114 (ticket issue #4471) ===
+- R-41200 | 2026-09-17T03:12:00+02:00 | intake product: sched-prod | place: sched-prod | fp: sched-prod:E-TZ-114
+  reporter: — (domena: (brak adresu))
+  subject: —
+  meta.errorCode: (brak)
+  body: status: clean (E-TZ-114)
+- R-41201 | 2026-09-17T03:19:00+02:00 | intake product: sched-prod | place: sched-prod | fp: sched-prod:E-TZ-114
+  reporter: ana.lis@zorza-care.pl (domena: zorza-care.pl)
+  subject: Times moved by an hour
+  meta.errorCode: E-TZ-114
+  body: My Thursday shifts have moved by an hour.
+- R-41202 | 2026-09-17T03:21:00+02:00 | intake product: sched-prod | place: sched-prod | fp: sched-prod:E-TZ-114
+  reporter: ilona.vik+work@brightwell.org (domena: brightwell.org)
+  subject: Times moved by an hour
+  meta.errorCode: E-TZ-114
+  body: My Thursday shifts have moved by an hour.
+  domeny reporterów: clinic-north.eu×101 zorza-care.pl×85 casa-sol.es×82 brightwell.org×80 (brak)×1
+
+=== tram-3:E-TZ-114 (merged into #4471 bez własnego ticketa) ===
+- R-41215 | 2026-09-17T03:33:00+02:00 | intake product: tram-3 | place: tram-3 | fp: tram-3:E-TZ-114
+  reporter: mira.falk@metro-lund.se (domena: metro-lund.se)
+  subject: Wrong times showing
+  meta.errorCode: (brak)
+  body: Platform screens are one hour behind the timetable. (E-TZ-114)
+- R-41219 | 2026-09-17T03:35:00+02:00 | intake product: tram-3 | place: tram-3 | fp: tram-3:E-TZ-114
+  reporter: Tom.falk@tramvaj-ostrava.cz (domena: tramvaj-ostrava.cz)
+  subject: Wrong times showing
+  meta.errorCode: E-TZ-114
+  body: Platform screens are one hour behind the timetable.
+- R-41225 | 2026-09-17T03:39:00+02:00 | intake product: sched-prod | place: tram-3 | fp: tram-3:E-TZ-114
+  reporter: marek.falk@ml-trafik.se (domena: ml-trafik.se)
+  subject: URGENT times wrong
+  meta.errorCode: (brak)
+  body: Everything on our screens is an hour late since last night. (E-TZ-114)
+  domeny reporterów: tramvaj-ostrava.cz×21 metro-lund.se×20 ml-trafik.se×3
+
+=== rota-6:E-SYNC-04 (merged into #4471 bez własnego ticketa) ===
+- R-41208 | 2026-09-17T03:27:00+02:00 | intake product: rota-6 | place: rota-6 | fp: rota-6:E-SYNC-04
+  reporter: kasia.hart@oak-lane-care.co.uk (domena: oak-lane-care.co.uk)
+  subject: times are wrong!!
+  meta.errorCode: (brak)
+  body: Night shift tonight shows twice, once with nobody on it. App says error e-sync 04.
+- R-41222 | 2026-09-17T03:37:00+02:00 | intake product: rota-6 | place: rota-6 | fp: rota-6:E-SYNC-04
+  reporter: ana.ek+shifts@oak-lane-care.co.uk (domena: oak-lane-care.co.uk)
+  subject: URGENT times wrong
+  meta.errorCode: (brak)
+  body: Our home has the night shift listed twice since the update. App says error e-sync 04.
+- R-41261 | 2026-09-17T03:53:00+02:00 | intake product: rota-6 | place: rota-6 | fp: rota-6:E-SYNC-04
+  reporter: mira.hart@oak-lane-care.co.uk (domena: oak-lane-care.co.uk)
+  subject: Thursday is wrong by an hour
+  meta.errorCode: (brak)
+  body: Two copies of the night rota, one hour apart. Which one is real? (E-SYNC-04)
+  domeny reporterów: oak-lane-care.co.uk×12 lindholm-hus.se×7

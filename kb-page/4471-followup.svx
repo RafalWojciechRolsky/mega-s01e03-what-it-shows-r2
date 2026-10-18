@@ -1,0 +1,82 @@
+---
+layout: runbook
+title: '#4471 follow-up · three issues behind the merge'
+owner: rafal
+status: open
+reviewed: 2026-10-18
+signature: v1.eyJzdWIiOiIxMjYiLCJhdWQiOiJjaGFsbGVnZS13aGF0LWl0LXNob3dzIiwiaWF0IjoxNzkyMzM4NzQ0LCJleHAiOjE3OTI0MjUxNDR9.9H4jajPOlfACWKmRImhBAvtR2Xn_TRvWAn5xW4NLKMo
+---
+
+<script>
+  import ClusterTable from '#lib/kb/ClusterTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+This page follows up on [incidents/4471](/kb/incidents/4471). That page was closed with
+"Closed. One issue, one fix, no follow-ups." This page re-reads the same 412 merged reports
+with the kb's own fingerprint rule and finds that the merge was coarser than the data.
+
+## What the merge did, and what the data says
+
+The night's triage ran on [decision 0001](/kb/decisions/0001-dedupe-by-subject): merge by
+subject line. That rule is fast and needs no reading - but `fingerprint.ts` says a report's
+issue is decided by **where it came from** (the reporter's tenant, `places.ts`) and **which
+server code it raises**, not by what intake guessed or how the subject reads.
+
+Run over the export, the same 412 reports split like this:
+
+<ClusterTable ticket={4471} />
+
+Three rows: one issue with a ticket of its own, and two clusters merged into #4471 that no
+ticket of their own covers. Same code from a different place is a different bug:
+`tram-3:E-TZ-114` is not `sched-prod:E-TZ-114`, and `rota-6:E-SYNC-04` shares nothing with
+either except the night.
+
+## The three issues, as filed
+
+One ticket per issue, filed in the public repo
+[RafalWojciechRolsky/mega-s01e03-what-it-shows-r2](https://github.com/RafalWojciechRolsky/mega-s01e03-what-it-shows-r2):
+
+1. [sched-prod · E-TZ-114 · shifts moved by an hour](https://github.com/RafalWojciechRolsky/mega-s01e03-what-it-shows-r2/issues/1) -
+   349 reports, 206 people, 03:12 → 06:13. This is what #4471 properly is.
+2. [tram-3 · E-TZ-114 · platform screens one hour behind the timetable](https://github.com/RafalWojciechRolsky/mega-s01e03-what-it-shows-r2/issues/2) -
+   44 reports, 26 people, 03:33 → 06:11. Reporter domains: tramvaj-ostrava.cz, metro-lund.se,
+   ml-trafik.se - all tram-3 tenants, whatever intake tagged them.
+3. [rota-6 · E-SYNC-04 · night rota listed twice](https://github.com/RafalWojciechRolsky/mega-s01e03-what-it-shows-r2/issues/3) -
+   19 reports, 9 people, 03:27 → 06:08. Reporter domains: oak-lane-care.co.uk,
+   lindholm-hus.se. Night shifts shown twice, an hour apart, in care homes - the
+   safety-relevant one.
+
+Every count on this page is computed at render time from `src/lib/data/reports-4471.json`
+by the kb's own components; the tickets carry the same numbers from the same file.
+
+## The night
+
+<QueueTimeline ticket={4471} />
+
+## Outcome
+
+The desk kept working while this page was written. The engineering update on the challenge
+page (18 October 2026) records the outcomes:
+
+- **rota-6** - fixed, change #31 (the sync fix landed). The repo's ticket is closed as
+  completed.
+- **tram-3** - won't fix, the boards are retired. The repo's ticket is closed as not
+  planned.
+- **sched-prod** - stays what it always was: #4471 itself, closed with its fix, change #29,
+  shipped at 06:15.
+
+<Callout>
+Desk update, 18 October 2026: rota-6 fixed by change #31 (sync fixed); tram-3 won't fix -
+boards retired. The two extra tickets are closed in the repo per those outcomes.
+</Callout>
+
+## Why this page exists
+
+- A big night is mostly one bug reported many times - but not always. The subject rule
+  sweeps; the fingerprint rule checks. Reading both costs minutes.
+- The page's numbers are computed, not typed; the desk ref below is derived, not decorated.
+
+<RenderStamp {signature} />
